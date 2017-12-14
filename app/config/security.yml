@@ -1,0 +1,31 @@
+# To get started with security, check out the documentation:
+# https://symfony.com/doc/current/security.html
+security:
+    encoders:
+        ConferenceSchedulerBundle\Entity\User: bcrypt
+    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    providers:
+        app_users:
+            entity: { class: ConferenceSchedulerBundle:User, property: email}
+
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        secured_area:
+            pattern: ^/
+
+            anonymous: true
+
+            form_login:
+                check_path: security_login
+
+                login_path: security_login
+
+                csrf_token_generator: security.csrf.token_manager
+
+            logout:
+                path: security_logout
+
+                target: homepage
+            # logout_on_user_change: true
+
+    access_control:

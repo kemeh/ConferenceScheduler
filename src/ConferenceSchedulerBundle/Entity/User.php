@@ -17,6 +17,8 @@ class User implements UserInterface
     public function __construct()
     {
         $this->roles = new ArrayCollection();
+        $this->conferences = new ArrayCollection();
+        $this->administratedConferences = new ArrayCollection();
     }
 
     /**
@@ -67,6 +69,22 @@ class User implements UserInterface
      */
     private $roles;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Conference", mappedBy="owner")
+     */
+    private $ownedConferences;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\Conference")
+     * @ORM\JoinTable(name="users_administrated_conferences",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="conference_id", referencedColumnName="id")})
+     */
+    private $administratedConferences;
 
     /**
      * Get id

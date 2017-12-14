@@ -35,6 +35,12 @@ class Hall
      */
     private $capacity;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Venue", inversedBy="halls")
+     * @ORM\JoinColumn(name="venue_id", referencedColumnName="id")
+     */
+    private $venue;
+
 
     /**
      * Get id

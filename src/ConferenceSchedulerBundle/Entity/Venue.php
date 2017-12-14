@@ -2,12 +2,13 @@
 
 namespace ConferenceSchedulerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Venue
  *
- * @ORM\Table(name="venue")
+ * @ORM\Table(name="venues")
  * @ORM\Entity(repositoryClass="ConferenceSchedulerBundle\Repository\VenueRepository")
  */
 class Venue
@@ -41,6 +42,13 @@ class Venue
      * @ORM\Column(name="category", type="string", length=255, unique=true)
      */
     private $category;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Hall", mappedBy="venue")
+     */
+    private $halls;
 
 
     /**

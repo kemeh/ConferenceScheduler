@@ -2,16 +2,22 @@
 
 namespace ConferenceSchedulerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Conference
  *
- * @ORM\Table(name="conference")
+ * @ORM\Table(name="conferences")
  * @ORM\Entity(repositoryClass="ConferenceSchedulerBundle\Repository\ConferenceRepository")
  */
 class Conference
 {
+    public function __construct()
+    {
+        $this->administrators = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -31,16 +37,35 @@ class Conference
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startDate", type="date")
+     * @ORM\Column(name="start_date", type="date")
      */
     private $startDate;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endDate", type="date")
+     * @ORM\Column(name="end_date", type="date")
      */
     private $endDate;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Venue")
+     * @ORM\JoinColumn(name="venue_id", referencedColumnName="id")
+     */
+    private $venue;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\User", inversedBy="ownedConferences")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    private $owner;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\User", mappedBy="administratedConferences")
+     */
+    private $administrators;
 
 
     /**

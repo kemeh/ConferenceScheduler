@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <a href="{{ path('create_venue') }}" class="btn btn-success">Add New Venue</a>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Category</th>
+                    <th>Halls</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for venue in venues %}
+                <tr>
+                    <td><a href="{{ path('details_venue', {'id': venue.id}) }}">{{ venue.name }}</a></td>
+                    <td>{{ venue.address }}</td>
+                    <td>{{ venue.category }}</td>
+                    <td>{{ venue.halls.count }}</td>
+                    <td><p><a href="{{ path('details_venue', {'id': venue.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>
+                            <a href="{{ path('edit_venue', {'id': venue.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a></p></td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}

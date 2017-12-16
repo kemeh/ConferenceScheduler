@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <a href="{{ path('create_hall', {'venue_id': venue.id}) }}" class="btn btn-success">Add New Hall</a>
+        <div class="col-sm-5">
+            <h2>{{ venue.name }}</h2>
+        </div>
+        <div class="col-sm-7">
+            <h2>Halls</h2>
+            {% if venue.halls is not empty %}
+            {% for hall in venue.halls %}
+                <div class="col-sm-4">
+                <div class="thumbnail">
+                    <img src="https://www.petmd.com/sites/default/files/petmd-cat-happy-13.jpg">
+                    <div class="caption">
+                        <h3>{{ hall.getName() }}</h3>
+                        <p><img src="{{ asset('fonts/glyphicons-44-group.png') }}"> {{ hall.getCapacity() }}</p>
+                        <p><a href="{{ path('details_hall', {'id': hall.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>
+                            <a href="{{ path('edit_hall', {'id': hall.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a></p>
+                    </div>
+                </div>
+                </div>
+            {% endfor %}
+            {% else %}
+            <h3>There are not halls in this venue</h3>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+

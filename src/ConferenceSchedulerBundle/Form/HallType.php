@@ -2,34 +2,34 @@
 
 namespace ConferenceSchedulerBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+/**
+ * {@inheritdoc}
+ */
+class HallType extends AbstractType
 {
-    /**
-     * {@inheritdoc}
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('email')->
-        add('password', PasswordType::class)->
-        add('firstName', TextType::class)->
-        add('lastName', TextType::class)->
-        add('register', SubmitType::class);
+        $builder->add('name', TextType::class)->
+            add('capacity', IntegerType::class)->
+            add('save', SubmitType::class);
     }
-    
+
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ConferenceSchedulerBundle\Entity\User'
+            'data_class' => 'ConferenceSchedulerBundle\Entity\Hall'
         ));
     }
 
@@ -38,8 +38,6 @@ class UserType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'user';
+        return 'hall';
     }
-
-
 }

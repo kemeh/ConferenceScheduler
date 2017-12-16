@@ -25,8 +25,8 @@
                 <div class="navbar-header">
                     <a href="{{ path('homepage') }}" class="navbar-brand">Home</a>
                     {% if app.user %}
-                        <a href="{{ path('homepage') }}" class="navbar-brand">
-                            Create Article
+                        <a href="{{ path('list_venues') }}" class="navbar-brand">
+                            Venues
                         </a>
                     {% endif %}
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">

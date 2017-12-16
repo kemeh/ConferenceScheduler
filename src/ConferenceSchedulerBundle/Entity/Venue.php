@@ -39,7 +39,7 @@ class Venue
     /**
      * @var string
      *
-     * @ORM\Column(name="category", type="string", length=255, unique=true)
+     * @ORM\Column(name="category", type="string", length=255)
      */
     private $category;
 
@@ -49,6 +49,22 @@ class Venue
      * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Hall", mappedBy="venue")
      */
     private $halls;
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getHalls()
+    {
+        return $this->halls;
+    }
+
+    /**
+     * @param ArrayCollection $halls
+     */
+    public function setHalls($halls)
+    {
+        $this->halls = $halls;
+    }
 
 
     /**

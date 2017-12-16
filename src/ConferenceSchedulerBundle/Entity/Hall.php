@@ -41,6 +41,22 @@ class Hall
      */
     private $venue;
 
+    /**
+     * @return mixed
+     */
+    public function getVenue()
+    {
+        return $this->venue;
+    }
+
+    /**
+     * @param mixed $venue
+     */
+    public function setVenue($venue)
+    {
+        $this->venue = $venue;
+    }
+
 
     /**
      * Get id

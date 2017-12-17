@@ -17,8 +17,9 @@ class User implements UserInterface
     public function __construct()
     {
         $this->roles = new ArrayCollection();
-        $this->conferences = new ArrayCollection();
+        $this->ownedConferences = new ArrayCollection();
         $this->administratedConferences = new ArrayCollection();
+        $this->ledSessions = new ArrayCollection();
     }
 
     /**
@@ -85,6 +86,11 @@ class User implements UserInterface
      *     inverseJoinColumns={@ORM\JoinColumn(name="conference_id", referencedColumnName="id")})
      */
     private $administratedConferences;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Session", mappedBy="speaker")
+     */
+    private $ledSessions;
 
     /**
      * Get id
@@ -190,6 +196,14 @@ class User implements UserInterface
     public function getLastName()
     {
         return $this->lastName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullName()
+    {
+        return $this->getFirstName(). ' ' . $this->getLastName();
     }
 
     /**

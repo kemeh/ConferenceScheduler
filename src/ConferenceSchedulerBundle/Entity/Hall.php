@@ -2,6 +2,7 @@
 
 namespace ConferenceSchedulerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -12,6 +13,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Hall
 {
+    public function __construct()
+    {
+        $this->sessions = new ArrayCollection();
+    }
+
     /**
      * @var int
      *
@@ -40,6 +46,11 @@ class Hall
      * @ORM\JoinColumn(name="venue_id", referencedColumnName="id")
      */
     private $venue;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Session", mappedBy="hall")
+     */
+    private $sessions;
 
     /**
      * @return mixed

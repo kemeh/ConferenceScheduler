@@ -49,6 +49,13 @@ class Conference
     private $endDate;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=2000)
+     */
+    private $description;
+
+    /**
      * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Venue")
      * @ORM\JoinColumn(name="venue_id", referencedColumnName="id")
      */
@@ -66,6 +73,22 @@ class Conference
      * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\User", mappedBy="administratedConferences")
      */
     private $administrators;
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
     /**
      * @return mixed

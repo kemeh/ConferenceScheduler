@@ -44,11 +44,34 @@ class Venue
     private $category;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="text", length=2000)
+     */
+    private $description;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Hall", mappedBy="venue")
      */
     private $halls;
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
 
     /**
      * @return ArrayCollection

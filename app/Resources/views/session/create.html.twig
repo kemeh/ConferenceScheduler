@@ -1,15 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-{{ parent() }}
+    {{ parent() }}
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap-datepicker.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/bootstrap-datetimepicker.min.css') }}">
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
 
-    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script>
     <script>
         jQuery(document).ready(function() {
             $('.js-datepicker').datepicker({
@@ -22,7 +22,7 @@
 {% block main %}
     <div class="row">
         <div class="col-sm-8 col-sm-offset-3">
-            <h2>Add New Conference</h2><br/>
+            <h2>Add New Hall</h2><br/>
             {{ form(form) }}
         </div>
     </div>

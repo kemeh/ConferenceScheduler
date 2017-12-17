@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Session
  *
- * @ORM\Table(name="session")
+ * @ORM\Table(name="sessions")
  * @ORM\Entity(repositoryClass="ConferenceSchedulerBundle\Repository\SessionRepository")
  */
 class Session
@@ -31,17 +31,60 @@ class Session
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="startTime", type="datetime")
+     * @ORM\Column(name="start_time", type="datetime")
      */
     private $startTime;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="endTime", type="datetime")
+     * @ORM\Column(name="end_time", type="datetime")
      */
     private $endTime;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Hall", inversedBy="sessions")
+     * @ORM\JoinColumn(name="hall_id", referencedColumnName="id")
+     */
+    private $hall;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\User", inversedBy="ledSessions")
+     * @ORM\JoinColumn(name="speaker_id", referencedColumnName="id")
+     */
+    private $speaker;
+
+    /**
+     * @return mixed
+     */
+    public function getHall()
+    {
+        return $this->hall;
+    }
+
+    /**
+     * @param mixed $hall
+     */
+    public function setHall($hall)
+    {
+        $this->hall = $hall;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSpeaker()
+    {
+        return $this->speaker;
+    }
+
+    /**
+     * @param mixed $speaker
+     */
+    public function setSpeaker($speaker)
+    {
+        $this->speaker = $speaker;
+    }
 
     /**
      * Get id

@@ -5,6 +5,9 @@
         <a href="{{ path('create_hall', {'venue_id': venue.id}) }}" class="btn btn-success">Add New Hall</a>
         <div class="col-sm-5">
             <h2>{{ venue.name }}</h2>
+            <h4><img src="{{ asset('fonts/glyphicons-503-map.png') }}"> {{ venue.address }}</h4>
+            <hr>
+            <p>{{ venue.description }}</p>
         </div>
         <div class="col-sm-7">
             <h2>Halls</h2>
@@ -23,7 +26,9 @@
                 </div>
             {% endfor %}
             {% else %}
-            <h3>There are not halls in this venue</h3>
+            <div class="alert alert-warning">
+                <h4>There are not halls in this venue. You must add at least one hall, otherwise the venue WILL NOT be available for booking!!!</h4>
+            </div>
             {% endif %}
         </div>
     </div>

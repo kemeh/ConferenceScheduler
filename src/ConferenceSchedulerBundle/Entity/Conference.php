@@ -67,6 +67,53 @@ class Conference
      */
     private $administrators;
 
+    /**
+     * @return mixed
+     */
+    public function getOwner()
+    {
+        return $this->owner;
+    }
+
+    /**
+     * @param mixed $owner
+     */
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getAdministrators()
+    {
+        return $this->administrators;
+    }
+
+    /**
+     * @param ArrayCollection $administrators
+     */
+    public function setAdministrators($administrators)
+    {
+        $this->administrators = $administrators;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVenue()
+    {
+        return $this->venue;
+    }
+
+    /**
+     * @param mixed $venue
+     */
+    public function setVenue($venue)
+    {
+        $this->venue = $venue;
+    }
 
     /**
      * Get id

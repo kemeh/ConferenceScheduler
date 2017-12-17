@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="row">
+        <a href="{{ path('create_conference') }}" class="btn btn-success">Add New Conference</a>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Topic</th>
+                    <th>Venue</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for conference in conferences %}
+                    <tr>
+                        <td><a href="{{ path('details_conference', {'id': conference.id}) }}">{{ conference.topic }}</a></td>
+                        <td>{{ conference.venue.getName() }}</td>
+                        <td>{{ conference.startDate|date("m/d/Y") }}</td>
+                        <td>{{ conference.endDate|date("m/d/Y") }}</td>
+                        <td><p><a href="{{ path('details_conference', {'id': conference.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>   </p></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

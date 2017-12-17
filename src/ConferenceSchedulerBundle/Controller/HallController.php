@@ -26,7 +26,6 @@ class HallController extends Controller
     public function createAction(Request $request, int $venue_id)
     {
         $hall = new Hall();
-
         $form = $this->createForm(HallType::class, $hall);
 
         $form->handleRequest($request);

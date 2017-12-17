@@ -16,6 +16,7 @@ class VenueType extends AbstractType
         $builder->add('name', TextType::class)->
         add('address', TextType::class)->
         add('category', ChoiceType::class, array(
+            'placeholder' => 'Choose a Category',
             'choices' => array(
                 'Choose a Category' => 'Choose a category',
                 'Hotel' => 'Hotel',

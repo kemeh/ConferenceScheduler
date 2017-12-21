@@ -6,6 +6,7 @@ use ConferenceSchedulerBundle\Entity\Venue;
 use ConferenceSchedulerBundle\Form\VenueType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,6 +22,7 @@ class VenueController extends Controller
      * @Route("/create", name="create_venue")
      * @param Request $request
      * @return Response
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -62,6 +64,7 @@ class VenueController extends Controller
     /**
      * @Route("/{id}/edit", name="edit_venue")
      * @Method({"GET", "POST"})
+     * @Security("has_role('ROLE_ADMIN')")
      */
     public function editAction(Request $request, Venue $venue)
     {

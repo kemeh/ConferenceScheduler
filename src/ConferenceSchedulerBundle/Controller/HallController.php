@@ -7,6 +7,7 @@ use ConferenceSchedulerBundle\Entity\Venue;
 use ConferenceSchedulerBundle\Form\HallType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,6 +16,7 @@ use Symfony\Component\HttpFoundation\Response;
  * Class HallController
  *
  *  @Route("hall")
+ * @Security("has_role('ROLE_USER')")
  */
 class HallController extends Controller
 {
@@ -22,6 +24,7 @@ class HallController extends Controller
      * @Route("/create/{venue_id}", name="create_hall", methods={"POST", "GET"})
      * @param Request $request
      * @return Response
+     * @Security("has_role('ROLE_SITE_ADMIN')")
      */
     public function createAction(Request $request, int $venue_id)
     {
@@ -37,7 +40,7 @@ class HallController extends Controller
             $em->persist($hall);
             $em->flush();
 
-
+            return $this->redirectToRoute('details_venue', array('id' => $hall->getVenue()->getId()));
         }
 
         return $this->render('hall/create.html.twig', array('form' => $form->createView()));
@@ -55,6 +58,7 @@ class HallController extends Controller
     /**
      * @Route("/{id}/edit", name="edit_hall")
      * @Method({"GET", "POST"})
+     * @Security("has_role('ROLE_SITE_ADMIN')")
      */
     public function editAction(Request $request, Hall $hall)
     {

@@ -2,7 +2,9 @@
 
 {% block body %}
     <div class="row">
-        <a href="{{ path('create_venue') }}" class="btn btn-success">Add New Venue</a>
+        {% if app.user and app.user.isAdmin() %}
+            <a href="{{ path('create_venue') }}" class="btn btn-success">Add New Venue</a>
+        {% endif %}
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -21,7 +23,10 @@
                     <td>{{ venue.category }}</td>
                     <td>{{ venue.halls.count }}</td>
                     <td><p><a href="{{ path('details_venue', {'id': venue.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>
-                            <a href="{{ path('edit_venue', {'id': venue.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a></p></td>
+                            {% if app.user and app.user.isAdmin() %}
+                            <a href="{{ path('edit_venue', {'id': venue.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a>
+                                {% endif %}
+                                </p></td>
                 </tr>
             {% endfor %}
             </tbody>

@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block main %}
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-3">
+            <h2>Your response?</h2><br/>
+            {{ form_start(form) }}
+                {{ form_widget(form.accept) }} {{ form_widget(form.reject) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

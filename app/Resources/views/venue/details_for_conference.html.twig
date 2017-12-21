@@ -1,10 +1,5 @@
-{% extends 'base.html.twig' %}
-
 {% block body %}
     <div class="row">
-        {% if app.user and app.user.isAdmin() %}
-        <a href="{{ path('create_hall', {'venue_id': venue.id}) }}" class="btn btn-success">Add New Hall</a>
-        {% endif %}
         <div class="col-sm-5">
             <h2>{{ venue.name }}</h2>
             <h4><img src="{{ asset('fonts/glyphicons-503-map.png') }}"> {{ venue.address }}</h4>

@@ -20,7 +20,7 @@ class HallType extends AbstractType
     {
         $builder->add('name', TextType::class)->
             add('capacity', IntegerType::class)->
-            add('save', SubmitType::class);
+            add('save', SubmitType::class, array('attr' => ['class' => 'btn btn-success']));
     }
 
     /**

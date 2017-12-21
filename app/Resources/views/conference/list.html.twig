@@ -2,7 +2,9 @@
 
 {% block main %}
     <div class="row">
+        {% if app.user %}
         <a href="{{ path('create_conference') }}" class="btn btn-success">Add New Conference</a>
+        {% endif %}
         <div class="table-responsive">
             <table class="table">
                 <thead>
@@ -20,7 +22,11 @@
                         <td>{{ conference.venue.getName() }}</td>
                         <td>{{ conference.startDate|date("m/d/Y") }}</td>
                         <td>{{ conference.endDate|date("m/d/Y") }}</td>
-                        <td><p><a href="{{ path('details_conference', {'id': conference.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>   </p></td>
+                        <td><p><a href="{{ path('details_conference', {'id': conference.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>
+                            {% if app.user and (app.user.isAdmin() or app.user.isConferenceOwner(conference)) %}
+                                <a href="{{ path('delete_conference', {'id': conference.getId()}) }}" class="btn btn-danger btn-xs" role="button">Delete</a>
+                            {% endif %}
+                            </p></td>
                     </tr>
                 {% endfor %}
                 </tbody>

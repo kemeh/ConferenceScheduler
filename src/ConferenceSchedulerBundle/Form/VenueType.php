@@ -19,7 +19,6 @@ class VenueType extends AbstractType
         add('category', ChoiceType::class, array(
             'placeholder' => 'Choose a Category',
             'choices' => array(
-                'Choose a Category' => 'Choose a category',
                 'Hotel' => 'Hotel',
                 'Conference Center' => 'Conference Center',
                 'Convention Center' => 'Convention Center',
@@ -31,7 +30,7 @@ class VenueType extends AbstractType
             )
         ))->
         add('description', TextareaType::class)->
-        add('save', SubmitType::class);
+        add('save', SubmitType::class, array('attr' => ['class' => 'btn btn-success']));
     }
 
     public function configureOptions(OptionsResolver $resolver)

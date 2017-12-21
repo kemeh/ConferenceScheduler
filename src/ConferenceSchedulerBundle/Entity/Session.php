@@ -2,6 +2,7 @@
 
 namespace ConferenceSchedulerBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,9 +51,98 @@ class Session
 
     /**
      * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\User", inversedBy="ledSessions")
-     * @ORM\JoinColumn(name="speaker_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="speaker_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $speaker;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Conference", inversedBy="sessions")
+     * @ORM\JoinColumn(name="conference_id", referencedColumnName="id", onDelete="CASCADE")
+     */
+    private $conference;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_active", type="boolean", options={"default" = true})
+     */
+    private $isActive;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="category", type="string")
+     */
+    private $category;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\User", mappedBy="participatedSessions")
+     */
+    private $participants;
+
+    /**
+     * @return mixed
+     */
+    public function getParticipants()
+    {
+        return $this->participants;
+    }
+
+    /**
+     * @param mixed $participants
+     */
+    public function addParticipant(User $participant)
+    {
+        $this->participants[] = $participant;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->isActive;
+    }
+
+    /**
+     * @param bool $isActive
+     */
+    public function setIsActive($isActive)
+    {
+        $this->isActive = $isActive;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param string $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getConference()
+    {
+        return $this->conference;
+    }
+
+    /**
+     * @param mixed $conference
+     */
+    public function setConference($conference)
+    {
+        $this->conference = $conference;
+    }
 
     /**
      * @return mixed
@@ -166,6 +256,22 @@ class Session
     public function getEndTime()
     {
         return $this->endTime;
+    }
+
+    /**
+     * @return bool
+     */
+    public function overlaps($sessions)
+    {
+        $overlaps = false;
+        foreach ($sessions as $session){
+            if($this->getStartTime() < $session->getEndTime() && $session->getStartTime() < $this->getEndTime()){
+                $overlaps = true;
+                break;
+            }
+        }
+
+        return $overlaps;
     }
 }
 

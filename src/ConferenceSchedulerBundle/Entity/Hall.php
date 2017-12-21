@@ -68,7 +68,6 @@ class Hall
         $this->venue = $venue;
     }
 
-
     /**
      * Get id
      *

@@ -5,6 +5,7 @@ namespace ConferenceSchedulerBundle\Controller;
 use ConferenceSchedulerBundle\Entity\Role;
 use ConferenceSchedulerBundle\Entity\User;
 use ConferenceSchedulerBundle\Form\UserType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
@@ -54,6 +55,7 @@ class UserController extends Controller
      *
      * @Route("/", name="user_index")
      * @Method("GET")
+     * @Security("has_role('ROLE_SITE_ADMIN')")
      */
     public function indexAction()
     {
@@ -63,32 +65,6 @@ class UserController extends Controller
 
         return $this->render('user/index.html.twig', array(
             'users' => $users,
-        ));
-    }
-
-    /**
-     * Creates a new user entity.
-     *
-     * @Route("/new", name="user_new")
-     * @Method({"GET", "POST"})
-     */
-    public function newAction(Request $request)
-    {
-        $user = new User();
-        $form = $this->createForm('ConferenceSchedulerBundle\Form\UserType', $user);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($user);
-            $em->flush();
-
-            return $this->redirectToRoute('user_show', array('id' => $user->getId()));
-        }
-
-        return $this->render('user/new.html.twig', array(
-            'user' => $user,
-            'form' => $form->createView(),
         ));
     }
 
@@ -151,6 +127,16 @@ class UserController extends Controller
         }
 
         return $this->redirectToRoute('user_index');
+    }
+
+    /**
+     * @Route("/{id}/schedule", name="user_schedule")
+     * @param Request $request
+     * @Method("GET")
+     */
+    public function showScheduleAction(Request $request, User $user)
+    {
+        return $this->render('user/schedule.html.twig');
     }
 
     /**

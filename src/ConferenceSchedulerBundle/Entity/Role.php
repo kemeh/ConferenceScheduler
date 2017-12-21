@@ -14,11 +14,6 @@ use Symfony\Component\Security\Core\Role\RoleInterface;
  */
 class Role implements RoleInterface
 {
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-    }
-
     /**
      * @var int
      *
@@ -42,6 +37,10 @@ class Role implements RoleInterface
      */
     private $users;
 
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id

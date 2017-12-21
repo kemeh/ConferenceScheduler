@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Conference</th>
+                    <th>Date</th>
+                    <th>Session</th>
+                    <th>Starts At</th>
+                    <th>Ends At</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for session in app.user.getParticipatedSessions() %}
+                    <tr>
+                        <td><a href="{{ path('details_conference', {'id': session.getConference().getId() }) }}">{{ session.getConference().getTopic() }}</a></td>
+                        <td>{{ session.getConference().getStartDate()|date("M/d/Y") }} - {{  session.getConference().getEndDate()|date("M/d/Y") }}</td>
+                        <td>{{ session.getTopic() }}</td>
+                        <td>{{ session.startTime|date("M.d H:i") }}</td>
+                        <td>{{ session.endTime|date("M.d H:i") }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

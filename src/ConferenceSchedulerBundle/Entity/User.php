@@ -14,14 +14,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
  */
 class User implements UserInterface
 {
-    public function __construct()
-    {
-        $this->roles = new ArrayCollection();
-        $this->ownedConferences = new ArrayCollection();
-        $this->administratedConferences = new ArrayCollection();
-        $this->ledSessions = new ArrayCollection();
-    }
-
     /**
      * @var int
      *
@@ -80,17 +72,72 @@ class User implements UserInterface
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\Conference")
-     * @ORM\JoinTable(name="users_administrated_conferences",
-     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *     inverseJoinColumns={@ORM\JoinColumn(name="conference_id", referencedColumnName="id")})
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\Conference", mappedBy="administrators")
      */
     private $administratedConferences;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\Session", inversedBy="participants")
+     * @ORM\JoinTable(name="users_sessions",
+     *     joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="session_id", referencedColumnName="id", onDelete="CASCADE")})
+     * @ORM\OrderBy({"startTime" = "ASC"})
+     */
+    private $participatedSessions;
 
     /**
      * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Session", mappedBy="speaker")
      */
     private $ledSessions;
+
+    /**
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Invitation", mappedBy="user")
+     */
+    private $invitations;
+
+    public function __construct()
+    {
+        $this->roles = new ArrayCollection();
+        $this->ownedConferences = new ArrayCollection();
+        $this->administratedConferences = new ArrayCollection();
+        $this->ledSessions = new ArrayCollection();
+        $this->invitations = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getParticipatedSessions()
+    {
+        return $this->participatedSessions;
+    }
+
+    /**
+     * @param ArrayCollection $participatedSessions
+     */
+    public function addParticipatedSessions(Session $participatedSession)
+    {
+        $participatedSession->addParticipant($this);
+        $this->participatedSessions[] = $participatedSession;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvitations()
+    {
+        return $this->invitations;
+    }
+
+    /**
+     * @param mixed $invitations
+     */
+    public function setInvitations($invitation)
+    {
+        $this->invitations[] = $invitation;
+    }
 
     /**
      * Get id
@@ -277,5 +324,42 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+    public function addAdministratedConference(Conference $conference)
+    {
+        $this->administratedConferences[] = $conference;
+    }
+
+    /**
+     * @param Conference $conference
+     * @return bool
+     */
+    public function isConferenceOwner(Conference $conference)
+    {
+        return $conference->getOwner()->getId() == $this->getId();
+    }
+
+    /**
+     * @param Conference $conference
+     * @return bool
+     */
+    public function isConferenceAdmin(Conference $conference)
+    {
+        return in_array($this->getEmail(), $conference->getAdministrators()->toArray());
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAdmin()
+    {
+        return in_array('ROLE_SITE_ADMIN', $this->getRoles());
+    }
+
+    public function __toString()
+    {
+        return $this->getEmail();
+    }
+
 }
 

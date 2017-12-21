@@ -1,6 +1,7 @@
 <?php
 
 namespace ConferenceSchedulerBundle\Repository;
+use ConferenceSchedulerBundle\Entity\Conference;
 
 /**
  * SessionRepository
@@ -10,4 +11,13 @@ namespace ConferenceSchedulerBundle\Repository;
  */
 class SessionRepository extends \Doctrine\ORM\EntityRepository
 {
+    function getSortedByStartTime(Conference $conference)
+    {
+        return $this->createQueryBuilder('session')->
+            where('session.conference == :conference')->
+            setParameter('conference', $conference)->
+            orderBy('session.startTime')->
+            getQuery()->
+            getResult();
+    }
 }

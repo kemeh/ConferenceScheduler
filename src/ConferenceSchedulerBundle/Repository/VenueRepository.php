@@ -10,4 +10,10 @@ namespace ConferenceSchedulerBundle\Repository;
  */
 class VenueRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getWithHallsOnly()
+    {
+        return $this->createQueryBuilder('venue')->
+        getQuery()->
+        getResult();
+    }
 }

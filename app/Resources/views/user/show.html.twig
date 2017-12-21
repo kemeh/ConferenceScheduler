@@ -41,4 +41,14 @@
             {{ form_end(delete_form) }}
         </li>
     </ul>
+<ul class="list-group">
+    {% for inv in user.invitations %}
+        {% if not inv.getIsResponded() %}
+        <li class="list-group-item">
+            <p>{{ inv.getMessage() }}  <a href="{{ path('invitation_response', {'id': inv.getId()}) }}" class="btn btn-primary btn-xs" role="button">Respond!</a></p>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
 {% endblock %}

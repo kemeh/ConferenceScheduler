@@ -2,20 +2,89 @@
 
 {% block main %}
     <h2>{{ conference.topic }}</h2>
+    <h4>{{ conference.startDate|date('d F Y') }} - {{ conference.endDate|date('d F Y') }}</h4>
     <div class="container">
-        <ul class="nav nav-tabs">
+        <ul class="nav nav-tabs" id="myTab">
             <li class="nav active"><a href="#A" data-toggle="tab">Home</a></li>
             <li class="nav"><a href="#B" data-toggle="tab">Programme</a></li>
-            <li class="nav"><a href="#C" data-toggle="tab">Lecturers</a></li>
+            <li class="nav"><a href="#C" data-toggle="tab">Administrators</a></li>
             <li class="nav"><a href="#D" data-toggle="tab">Venue</a></li>
         </ul>
 
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane fade in active" id="A">{{ conference.description }}</div>
-            <div class="tab-pane fade" id="B"></div>
-            <div class="tab-pane fade" id="C">{{ conference.venue.getName() }}</div>
-            <div class="tab-pane fade" id="D">{% include 'venue/details.html.twig' with {'venue': conference.venue} %}</div>
+            <div class="tab-pane fade" id="B">
+                <div class="row">
+                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference)) %}
+                    <a href="{{ path('create_session', {'conference_id': conference.getId()} ) }}" class="btn btn-primary">Add New Session</a>
+                    {% endif %}
+                    <div class="col-sm-12">
+                        <ul class="list-group">
+                            {% for session in conference.sessions %}
+                                {% if session.isActive() %}
+                                    {% if session.overlaps(app.user.getParticipatedSessions()) %}
+                                    <li class="list-group-item">{{ session.getStartTime()|date('F d - H:i') }}-
+                                    {{ session.getEndTime()|date('H:i') }}<br/>
+                                    Topic: {{ session.getTopic() }}<br/>
+                                    Speaker: {{ session.getSpeaker().getFullName() }}    <p><img src="{{ asset('fonts/glyphicons-44-group.png') }}"> {{ session.getParticipants().count }}/{{ session.getHall().getCapacity() }}</p></li>
+                                        {% else %}
+                                            <li class="list-group-item">{{ session.getStartTime()|date('F d - H:i') }}-
+                                                {{ session.getEndTime()|date('H:i') }}  <a href="{{ path('signup_for_session', {'id': session.getId()}) }}" class="btn btn-success btn-xs">Sign Up!</a> <br/>
+                                                Topic: {{ session.getTopic() }}<br/>
+                                                Speaker: {{ session.getSpeaker().getFullName() }}    <p><img src="{{ asset('fonts/glyphicons-44-group.png') }}"> {{ session.getParticipants().count }}/{{ session.getHall().getCapacity() }}</p></li>
+                                        {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="C">
+                <div class="row">
+                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference)) %}
+                    <a href="{{ path('add_admins', {'id': conference.getId()} ) }}" class="btn btn-primary">Add Admins</a>
+                    {% endif %}
+                    <div class="col-sm-12">
+                        <ul class="list-group">
+                            {% if conference.administrators is not empty %}
+                                {% for admin in conference.administrators %}
+                                    <div class="col-sm-3">
+                                        <div class="thumbnail">
+                                            <img src="https://www.vyapamexams.com/storage/avatars/6rBTk5j1JwZzxfE3JnMF2FzJXyAsfv4xJngufMDB.png">
+                                            <div class="caption">
+                                                <h3>{{ admin.getFullName() }}</h3>
+                                                <p><a href="{{ path('user_show', {'id': admin.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a></p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <p>No admins Added yet</p>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="D">{% include 'venue/details_for_conference.html.twig' with {'venue': conference.venue} %}</div>
+
+            <script>
+                jQuery('#myTab a').click(function(e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                });
+
+                // store the currently selected tab in the hash value
+                $("ul.nav-tabs > li > a").on("shown.bs.tab", function(e) {
+                    var id = $(e.target).attr("href").substr(1);
+                    window.location.hash = id;
+                });
+
+                // on load of the page: switch to the currently selected tab
+                var hash = window.location.hash;
+                jQuery('#myTab a[href="' + hash + '"]').tab('show');
+            </script>
         </div>
     </div>
 {% endblock %}

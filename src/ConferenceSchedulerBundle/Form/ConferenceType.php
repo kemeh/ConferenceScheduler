@@ -31,16 +31,18 @@ class ConferenceType extends AbstractType
         add('venue', EntityType::class, array(
             'placeholder' => 'Choose a Venue',
             'class' => Venue::class,
+            'choices' => $options['venues'],
             'choice_label' => 'name',
         ))->
         add('description', TextareaType::class)->
-        add('save', SubmitType::class);
+        add('save', SubmitType::class, array('attr' => ['class' => 'btn btn-success']));
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ConferenceSchedulerBundle\Entity\Conference'
+            'data_class' => 'ConferenceSchedulerBundle\Entity\Conference',
+            'venues' => null,
         ));
     }
 

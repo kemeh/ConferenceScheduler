@@ -33,10 +33,10 @@
             <div class="container">
                 <div class="navbar-header">
                     <a href="{{ path('homepage') }}" class="navbar-brand">Home</a>
-                    {% if app.user %}
-                        <a href="{{ path('list_venues') }}" class="navbar-brand">
-                            Venues
-                        </a>
+                    <a href="{{ path('list_venues') }}" class="navbar-brand">
+                        Venues
+                    </a>
+                    {% if app.user and app.user.isAdmin() %}
                         <a href="{{ path('user_index') }}" class="navbar-brand">
                             Users
                         </a>
@@ -51,7 +51,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         {% if app.user %}
                             <li>
-                                <a href="{{ path('homepage') }}">
+                                <a href="{{ path('user_schedule', {'id': app.getUser.getId() }) }}">
+                                    My Schedule
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ path('user_show', {'id': app.getUser().getId() }) }}">
                                     My Profile
                                 </a>
                             </li>

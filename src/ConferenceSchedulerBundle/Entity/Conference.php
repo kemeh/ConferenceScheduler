@@ -13,11 +13,6 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Conference
 {
-    public function __construct()
-    {
-        $this->administrators = new ArrayCollection();
-    }
-
     /**
      * @var int
      *
@@ -57,22 +52,56 @@ class Conference
 
     /**
      * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\Venue")
-     * @ORM\JoinColumn(name="venue_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="venue_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $venue;
 
     /**
      * @ORM\ManyToOne(targetEntity="ConferenceSchedulerBundle\Entity\User", inversedBy="ownedConferences")
-     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")
      */
     private $owner;
+
 
     /**
      * @var ArrayCollection
      *
-     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\User", mappedBy="administratedConferences")
+     * @ORM\ManyToMany(targetEntity="ConferenceSchedulerBundle\Entity\User", inversedBy="administratedConferences")
+     * @ORM\JoinTable(name="users_administrated_conferences",
+     *     joinColumns={@ORM\JoinColumn(name="conference_id", referencedColumnName="id", onDelete="CASCADE")},
+     *     inverseJoinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id", onDelete="CASCADE")})
      */
     private $administrators;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="ConferenceSchedulerBundle\Entity\Session", mappedBy="conference")
+     * @ORM\OrderBy({"startTime" = "ASC"})
+     */
+    private $sessions;
+
+    public function __construct()
+    {
+        $this->administrators = new ArrayCollection();
+        $this->sessions = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSessions()
+    {
+        return $this->sessions;
+    }
+
+    /**
+     * @param mixed $sessions
+     */
+    public function setSessions($sessions)
+    {
+        $this->sessions = $sessions;
+    }
 
     /**
      * @return string
@@ -114,12 +143,10 @@ class Conference
         return $this->administrators;
     }
 
-    /**
-     * @param ArrayCollection $administrators
-     */
-    public function setAdministrators($administrators)
+    public function addAdministrator(User $admin)
     {
-        $this->administrators = $administrators;
+        $admin->addAdministratedConference($this);
+        $this->administrators[] = $admin;
     }
 
     /**

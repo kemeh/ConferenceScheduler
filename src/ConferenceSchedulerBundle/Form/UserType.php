@@ -20,7 +20,7 @@ class UserType extends AbstractType
         add('password', PasswordType::class)->
         add('firstName', TextType::class)->
         add('lastName', TextType::class)->
-        add('register', SubmitType::class);
+        add('register', SubmitType::class, array('attr' => ['class' => 'btn btn-success']));
     }
     
     /**

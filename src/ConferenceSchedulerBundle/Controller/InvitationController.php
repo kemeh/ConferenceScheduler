@@ -37,6 +37,7 @@ class InvitationController extends Controller
             }
 
             $invitation->getSession()->setIsActive(true);
+            $em->remove($invitation);
             $em->flush();
 
             return $this->redirectToRoute('user_show', array('id' => $invitation->getUser()->getId()));

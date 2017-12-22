@@ -22,7 +22,10 @@
                         <h3>{{ hall.getName() }}</h3>
                         <p><img src="{{ asset('fonts/glyphicons-44-group.png') }}"> {{ hall.getCapacity() }}</p>
                         <p><a href="{{ path('details_hall', {'id': hall.getId()}) }}" class="btn btn-primary btn-xs" role="button">Details</a>
-                            <a href="{{ path('edit_hall', {'id': hall.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a></p>
+                            {% if app.user and app.user.isAdmin() %}
+                            <a href="{{ path('edit_hall', {'id': hall.getId()}) }}" class="btn btn-default btn-xs" role="button">Edit</a>
+                            {% endif %}
+                        </p>
                     </div>
                 </div>
                 </div>

@@ -1,6 +1,9 @@
 {% extends 'base.html.twig' %}
 
 {% block main %}
+    {% if app.user and (app.user.isAdmin() or app.user.isConferenceOwner(conference)) %}
+        <a href="{{ path('delete_conference', {'id': conference.getId()}) }}" class="btn btn-danger" role="button">Delete</a>
+    {% endif %}
     <h2>{{ conference.topic }}</h2>
     <h4>{{ conference.startDate|date('d F Y') }} - {{ conference.endDate|date('d F Y') }}</h4>
     <div class="container">

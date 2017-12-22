@@ -1,54 +1,50 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>User</h1>
+    <h1>User Profile</h1>
+        <div class="col-sm-6">
+            <table>
+                <tbody>
+                <tr>
+                    <th>Id</th>
+                    <td>{{ user.id }}</td>
+                </tr>
+                <tr>
+                    <th>Email</th>
+                    <td>{{ user.email }}</td>
+                </tr>
+                <tr>
+                    <th>Firstname</th>
+                    <td>{{ user.firstName }}</td>
+                </tr>
+                <tr>
+                    <th>Lastname</th>
+                    <td>{{ user.lastName }}</td>
+                </tr>
+                </tbody>
+            </table>
 
-    <table>
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ user.id }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ user.email }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ user.password }}</td>
-            </tr>
-            <tr>
-                <th>Firstname</th>
-                <td>{{ user.firstName }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ user.lastName }}</td>
-            </tr>
-        </tbody>
-    </table>
+            <p>
+                <a href="{{ path('user_index') }}" class="btn btn-default btn-xs">Back to the list</a>
+                <a href="{{ path('user_edit', { 'id': user.id }) }}" class="btn btn-primary btn-xs">Edit</a>
 
-    <ul>
-        <li>
-            <a href="{{ path('user_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('user_edit', { 'id': user.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
-<ul class="list-group">
-    {% for inv in user.invitations %}
-        {% if not inv.getIsResponded() %}
-        <li class="list-group-item">
-            <p>{{ inv.getMessage() }}  <a href="{{ path('invitation_response', {'id': inv.getId()}) }}" class="btn btn-primary btn-xs" role="button">Respond!</a></p>
-        </li>
-        {% endif %}
-    {% endfor %}
-</ul>
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+                {{ form_end(delete_form) }}
+            </p>
+        </div>
+        <div class="col-sm-6">
+            <h3>Invitations</h3>
+            <ul class="list-group">
+                {% for inv in user.invitations %}
+                    {% if not inv.getIsResponded() %}
+                        <li class="list-group-item">
+                            <p>{{ inv.getMessage() }}  <a href="{{ path('invitation_response', {'id': inv.getId()}) }}" class="btn btn-primary btn-xs" role="button">Respond!</a></p>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
 
 {% endblock %}

@@ -62,7 +62,7 @@ class ConferenceController extends Controller
      */
     public function listAction()
     {
-        $conferences = $this->getDoctrine()->getRepository(Conference::class)->findAll();
+        $conferences = $this->getDoctrine()->getRepository(Conference::class)->getActiveConferences();
         return $this->render('conference/list.html.twig', array('conferences' => $conferences));
     }
 

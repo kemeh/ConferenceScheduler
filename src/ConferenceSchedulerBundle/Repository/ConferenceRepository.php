@@ -10,4 +10,15 @@ namespace ConferenceSchedulerBundle\Repository;
  */
 class ConferenceRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getActiveConferences()
+    {
+        $currentDate = date("Y-m-d");
+
+        return $this->createQueryBuilder('conference')->
+        where('conference.startDate >= :startTime')->
+        setParameter('startTime', $currentDate)->
+        orderBy('conference.startDate')->
+        getQuery()->
+        getResult();
+    }
 }

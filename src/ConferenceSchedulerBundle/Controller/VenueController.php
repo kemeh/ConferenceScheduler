@@ -22,7 +22,7 @@ class VenueController extends Controller
      * @Route("/create", name="create_venue")
      * @param Request $request
      * @return Response
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_SITE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -64,7 +64,7 @@ class VenueController extends Controller
     /**
      * @Route("/{id}/edit", name="edit_venue")
      * @Method({"GET", "POST"})
-     * @Security("has_role('ROLE_ADMIN')")
+     * @Security("has_role('ROLE_SITE_ADMIN')")
      */
     public function editAction(Request $request, Venue $venue)
     {

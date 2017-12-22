@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1d41181-c5a6-438c-b4d0-5be56db5fdc3" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/conference/details.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/conference/details.html.twig" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig" afterPath="$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig" />
       <change beforePath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php" afterPath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php" />
-      <change beforePath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/ConferenceRepository.php" afterPath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/ConferenceRepository.php" />
+      <change beforePath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php" afterPath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php" />
+      <change beforePath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php" afterPath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php" />
+      <change beforePath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php" afterPath="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,31 +28,83 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="error403.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error403.html.twig">
+      <file leaf-file-name="SessionController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="232">
+              <caret line="50" column="42" lean-forward="false" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="details.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/details.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-153">
+              <caret line="48" column="142" lean-forward="false" selection-start-line="48" selection-start-column="142" selection-end-line="48" selection-end-column="142" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="delete.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/delete.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="91" lean-forward="false" selection-start-line="5" selection-start-column="91" selection-end-line="5" selection-end-column="91" />
+              <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SecurityController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SecurityController.php">
+      <file leaf-file-name="ConferenceController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="88" column="59" lean-forward="false" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="VenueRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/VenueRepository.php">
+      <file leaf-file-name="InvitationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="17" selection-end-column="5" />
+            <state relative-caret-position="327">
+              <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Session.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Session.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1079">
+              <caret line="189" column="16" lean-forward="false" selection-start-line="189" selection-start-column="11" selection-end-line="189" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="response.html.twig" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
+              <folding>
+                <element signature="e#12#26#0#Twig" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/User.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="337" column="5" lean-forward="false" selection-start-line="337" selection-start-column="5" selection-end-line="337" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -63,61 +120,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConferenceController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php">
+      <file leaf-file-name="Invitation.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Invitation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="64" column="102" lean-forward="false" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="102" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HallRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/HallRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="UserRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/UserRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="InvitationRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/InvitationRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RoleRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/RoleRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SessionRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/SessionRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="20" selection-end-column="24" />
+            <state relative-caret-position="197">
+              <caret line="45" column="87" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -145,6 +152,7 @@
       <find>administrato</find>
       <find>administra</find>
       <find>admin</find>
+      <find>topic</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -163,14 +171,12 @@
         <option value="$PROJECT_DIR$/app/Resources/views/conference/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/session/create.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/invitation/details.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Form/VenueType.php" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Form/UserType.php" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Form/HallType.php" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Invitation.php" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Role.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/session/signup.html.twig" />
-        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/exception/error404.html.twig" />
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/config/routing.yml" />
@@ -185,17 +191,13 @@
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/UserController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/conference/admins.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/conference/delete.html.twig" />
-        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/User.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/schedule.html.twig" />
-        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/venue/details_for_conference.html.twig" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Session.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/venue/list.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/index.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/user/show.html.twig" />
-        <option value="$PROJECT_DIR$/app/Resources/views/conference/details.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/views/venue/details.html.twig" />
-        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exceptions/error403.html.twig" />
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exceptions/error404.html.twig" />
@@ -203,6 +205,12 @@
         <option value="$PROJECT_DIR$/app/Resources/TwigBundle/views/Exception/error403.html.twig" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SecurityController.php" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/ConferenceRepository.php" />
+        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php" />
+        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig" />
+        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php" />
+        <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/User.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/conference/details.html.twig" />
         <option value="$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php" />
       </list>
     </option>
@@ -255,7 +263,7 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1370" />
@@ -315,7 +323,7 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="security" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="conference" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="ConferenceScheduler" type="b2602c69:ProjectViewProjectNode" />
@@ -334,20 +342,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="ConferenceSchedulerBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="ConferenceScheduler" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConferenceScheduler" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ConferenceSchedulerBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="ConferenceScheduler" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ConferenceScheduler" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="ConferenceSchedulerBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="ConferenceScheduler" type="b2602c69:ProjectViewProjectNode" />
@@ -480,12 +474,12 @@
       <workItem from="1513890980639" duration="1921000" />
       <workItem from="1513893359208" duration="4958000" />
       <workItem from="1513899435497" duration="5002000" />
-      <workItem from="1513932410599" duration="2655000" />
+      <workItem from="1513932410599" duration="7738000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="149944000" />
+    <option name="totallyTimeSpent" value="155027000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -497,10 +491,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.8641766" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2700454" sideWeight="0.8641766" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293718" sideWeight="0.4969743" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30050933" sideWeight="0.23969465" order="7" side_tool="true" content_ui="tabs" />
@@ -531,13 +524,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/session/signup.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/config/security.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
@@ -549,14 +535,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="27" column="54" lean-forward="false" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-166">
-          <caret line="66" column="42" lean-forward="false" selection-start-line="66" selection-start-column="42" selection-end-line="66" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -612,14 +590,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Venue.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Form/SessionType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -656,14 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="14" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/delete.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -741,14 +703,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/details.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="99" lean-forward="false" selection-start-line="4" selection-start-column="99" selection-end-line="4" selection-end-column="99" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Resources/views/venue/edit.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -767,58 +721,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1411">
-          <caret line="85" column="42" lean-forward="false" selection-start-line="85" selection-start-column="42" selection-end-line="85" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Invitation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="45" column="87" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="39" column="37" lean-forward="false" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/HallController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Session.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="748">
-          <caret line="45" column="2" lean-forward="false" selection-start-line="45" selection-start-column="2" selection-end-line="49" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Hall.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="17" column="48" lean-forward="false" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="86" column="35" lean-forward="false" selection-start-line="86" selection-start-column="35" selection-end-line="86" selection-end-column="35" />
           <folding />
         </state>
       </provider>
@@ -844,7 +750,7 @@
         <state relative-caret-position="463">
           <caret line="29" column="10" lean-forward="false" selection-start-line="3" selection-start-column="4" selection-end-line="29" selection-end-column="10" />
           <folding>
-            <element signature="e#12#26#0#Twig" expanded="true" />
+            <element signature="e#12#26#0#Twig" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -889,14 +795,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/HallRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/UserRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -913,10 +811,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/HallController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="26" column="43" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Venue.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="782">
+          <caret line="53" column="27" lean-forward="false" selection-start-line="53" selection-start-column="27" selection-end-line="53" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/VenueController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="24" column="38" lean-forward="false" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/SessionRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="15" column="8" lean-forward="false" selection-start-line="15" selection-start-column="8" selection-end-line="20" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Repository/HallRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -929,10 +859,76 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Invitation.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="45" column="87" lean-forward="false" selection-start-line="45" selection-start-column="67" selection-end-line="45" selection-end-column="87" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/InvitationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="47" column="40" lean-forward="false" selection-start-line="47" selection-start-column="40" selection-end-line="47" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/Session.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1079">
+          <caret line="189" column="16" lean-forward="false" selection-start-line="189" selection-start-column="11" selection-end-line="189" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/invitation/response.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="87" lean-forward="false" selection-start-line="6" selection-start-column="87" selection-end-line="6" selection-end-column="87" />
+          <folding>
+            <element signature="e#12#26#0#Twig" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/SessionController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="232">
+          <caret line="50" column="42" lean-forward="false" selection-start-line="50" selection-start-column="42" selection-end-line="50" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Entity/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="337" column="5" lean-forward="false" selection-start-line="337" selection-start-column="5" selection-end-line="337" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="33" lean-forward="false" selection-start-line="5" selection-start-column="33" selection-end-line="5" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/conference/details.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-153">
+          <caret line="48" column="142" lean-forward="false" selection-start-line="48" selection-start-column="142" selection-end-line="48" selection-end-column="142" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConferenceSchedulerBundle/Controller/ConferenceController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="64" column="102" lean-forward="false" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="102" />
+        <state relative-caret-position="102">
+          <caret line="88" column="59" lean-forward="false" selection-start-line="88" selection-start-column="59" selection-end-line="88" selection-end-column="59" />
           <folding />
         </state>
       </provider>

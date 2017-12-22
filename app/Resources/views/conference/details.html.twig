@@ -19,14 +19,14 @@
             <div class="tab-pane fade in active" id="A">{{ conference.description }}</div>
             <div class="tab-pane fade" id="B">
                 <div class="row">
-                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference)) %}
+                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference) or app.user.isAdmin()) %}
                     <a href="{{ path('create_session', {'conference_id': conference.getId()} ) }}" class="btn btn-primary">Add New Session</a>
                     {% endif %}
                     <div class="col-sm-12">
                         <ul class="list-group">
                             {% for session in conference.sessions %}
                                 {% if session.isActive() %}
-                                    {% if session.overlaps(app.user.getParticipatedSessions()) %}
+                                    {% if app.user and session.overlaps(app.user.getParticipatedSessions()) %}
                                     <li class="list-group-item">{{ session.getStartTime()|date('F d - H:i') }}-
                                     {{ session.getEndTime()|date('H:i') }}<br/>
                                     Topic: {{ session.getTopic() }}<br/>
@@ -46,7 +46,7 @@
             </div>
             <div class="tab-pane fade" id="C">
                 <div class="row">
-                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference)) %}
+                    {% if app.user and (app.user.isConferenceOwner(conference) or app.user.isConferenceAdmin(conference) or app.user.isAdmin()) %}
                     <a href="{{ path('add_admins', {'id': conference.getId()} ) }}" class="btn btn-primary">Add Admins</a>
                     {% endif %}
                     <div class="col-sm-12">

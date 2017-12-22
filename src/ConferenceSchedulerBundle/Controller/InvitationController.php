@@ -43,7 +43,10 @@ class InvitationController extends Controller
             return $this->redirectToRoute('user_show', array('id' => $invitation->getUser()->getId()));
         }
 
-        return $this->render('invitation/response.html.twig', array('form' => $form->createView()));
+        return $this->render('invitation/response.html.twig', array(
+            'form' => $form->createView(),
+            'invitation' => $invitation,
+        ));
     }
 
     private function createResponseForm()

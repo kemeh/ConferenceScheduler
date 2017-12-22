@@ -41,16 +41,17 @@ class SessionController extends Controller
             $session->setConference($conference);
             $session->setIsActive(true);
 
+            $em = $this->getDoctrine()->getManager();
             if($session->getCategory() == 'lecture'){
                 $session->setIsActive(false);
 
                 $invitation = new Invitation();
                 $invitation = $invitation->fill($session);
+
+                $em->persist($invitation);
             }
 
-            $em = $this->getDoctrine()->getManager();
             $em->persist($session);
-            $em->persist($invitation);
             $em->flush();
 
             return $this->redirectToRoute('details_conference', array(

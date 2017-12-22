@@ -86,7 +86,7 @@ class ConferenceController extends Controller
         /** @var User $currentUser */
         $currentUser = $this->getUser();
 
-        if(!$currentUser->isAdmin() || !$currentUser->isConferenceOwner($conference)){
+        if(!$currentUser->isConferenceOwner($conference) && !$currentUser->isAdmin()){
             throw new AccessDeniedException();
         }
 

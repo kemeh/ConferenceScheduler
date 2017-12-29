@@ -35,6 +35,7 @@ class VenueController extends Controller
             $em->persist($venue);
             $em->flush();
 
+            $this->addFlash("success", "You have created new Venue");
             return $this->redirectToRoute('details_venue', array('id' => $venue->getId()));
         }
 
@@ -75,6 +76,7 @@ class VenueController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
+            $this->addFlash("success", "You have edited " . $venue->getName());
             return $this->redirectToRoute('details_venue', array('id' => $venue->getId(),));
         }
 

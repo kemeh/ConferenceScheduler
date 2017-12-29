@@ -40,6 +40,7 @@ class HallController extends Controller
             $em->persist($hall);
             $em->flush();
 
+            $this->addFlash("success", "You have created a new Hall!");
             return $this->redirectToRoute('details_venue', array('id' => $hall->getVenue()->getId()));
         }
 
@@ -69,6 +70,7 @@ class HallController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
+            $this->addFlash("success", "You have edited " . $hall->getName());
             return $this->redirectToRoute('details_hall', array('id' => $hall->getId(),));
         }
 

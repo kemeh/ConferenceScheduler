@@ -44,6 +44,7 @@ class UserController extends Controller
             $em->persist($user);
             $em->flush();
 
+            $this->addFlash("success", "You have registered successfully. Please login to continue!");
             return $this->redirectToRoute('security_login');
         }
 

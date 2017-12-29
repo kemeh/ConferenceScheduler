@@ -54,6 +54,7 @@ class SessionController extends Controller
             $em->persist($session);
             $em->flush();
 
+            $this->addFlash("success", "You have created new Session");
             return $this->redirectToRoute('details_conference', array(
                 'id' => $conference_id,
                 '_fragment' => 'B',)
@@ -83,6 +84,7 @@ class SessionController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->flush();
 
+            $this->addFlash("success", "You have signed up for " . $session->getTopic());
             return $this->redirectToRoute('details_conference', array(
                 'id' => $session->getConference()->getId(),
                 '_fragment' => 'B',

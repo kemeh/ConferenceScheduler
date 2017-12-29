@@ -49,6 +49,7 @@ class ConferenceController extends Controller
             $em->persist($conference);
             $em->flush();
 
+            $this->addFlash("success", "You have created new Conference");
             return $this->redirectToRoute('details_conference', array('id' => $conference->getId()));
         }
 
@@ -104,6 +105,7 @@ class ConferenceController extends Controller
             $em->persist($conference);
             $em->flush();
 
+            $this->addFlash("success", "You have added new administrator(s) to " . $conference->getTopic());
             return $this->redirectToRoute('details_conference', array('id' => $conference->getId(), '_fragment' => 'C'));
         }
 
@@ -121,7 +123,7 @@ class ConferenceController extends Controller
         /* @var User $currentUser */
         $currentUser = $this->getUser();
 
-        if(!$currentUser->isAdmin() || !$currentUser->isConferenceOwner($conference)){
+        if(!$currentUser->isAdmin() && !$currentUser->isConferenceOwner($conference)){
             throw new AccessDeniedException();
         }
 
@@ -135,6 +137,7 @@ class ConferenceController extends Controller
             $em->remove($conference);
             $em->flush();
 
+            $this->addFlash("warning", "You have deleted " . $conference->getTopic());
             return $this->redirectToRoute('homepage');
         }
 

@@ -25,7 +25,15 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 
-<body id="{% block body_id %}{% endblock %}">
+<body>
+
+{% for label, messages in app.flashes(['success', 'error', 'warning']) %}
+    {% for message in messages %}
+    <div class="alert alert-{{ label }}">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endfor %}
 
 {% block header %}
     <header>
@@ -92,7 +100,18 @@
     </header>
 {% endblock %}
 
+
 <div class="container body-container">
+    {% block messages %}
+        {% for label, messages in app.flashes(['success', 'error', 'warning']) %}
+            {% for message in messages %}
+                <div class="alert alert-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endblock %}
+
     {% block body %}
         <div class="row">
             <div id="main" class="col-sm-9">

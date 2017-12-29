@@ -40,6 +40,7 @@ class InvitationController extends Controller
             $em->remove($invitation);
             $em->flush();
 
+            $this->addFlash("success", "You have responded to Invitation");
             return $this->redirectToRoute('user_show', array('id' => $invitation->getUser()->getId()));
         }
 
